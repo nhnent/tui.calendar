@@ -18,7 +18,7 @@ export const CollapseButton: FunctionComponent<Props> = ({ collapsed = false, on
   const memoizedOnClick = useCallback(() => onClick(collapsed), [collapsed, onClick]);
 
   return (
-    <div className={addTimeGridPrefix('collapse-button')} onClick={memoizedOnClick}>
+    <div className={cls(addTimeGridPrefix('collapse-button'))} onClick={memoizedOnClick}>
       <span className={iconClassName} />
     </div>
   );

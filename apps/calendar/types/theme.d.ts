@@ -27,6 +27,9 @@ type DayNameTheme = {
 type WeekTheme = {
   dayname: DayNameTheme;
   dayGridSchedule: ScheduleTheme;
+  currentTime: { color: string };
+  pastTime: { color: string };
+  futureTime: { color: string };
 };
 
 type MonthTheme = {

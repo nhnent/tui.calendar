@@ -6,6 +6,7 @@ import toArray from 'tui-code-snippet/collection/toArray';
 import addClass from 'tui-code-snippet/domUtil/addClass';
 import removeClass from 'tui-code-snippet/domUtil/removeClass';
 
+import { useTheme } from '@src/components/hooks/theme';
 import Template from '@src/components/template';
 import { addTimeGridPrefix } from '@src/components/timegrid';
 import { CurrentTimeLabel } from '@src/components/timegrid/currentTimeLabel';
@@ -104,6 +105,8 @@ export const Times: FunctionComponent<Props> = ({
   end = times.length - 1,
   timeTemplate,
 }) => {
+  const { week } = useTheme();
+  const pastTimeColor = week.pastTime.color;
   const filteredTimes = times.slice(start, end + 1);
   const timesLength = filteredTimes.length - 1;
   const top = getTopPercentByTime(currentTime, first(filteredTimes).date, last(filteredTimes).date);
@@ -128,9 +131,12 @@ export const Times: FunctionComponent<Props> = ({
           [classNames.hidden]: isLast && !showLast,
         });
         const display = !showFirst && isFirst ? '' : slot.display;
+        const style = {
+          color: isPast ? pastTimeColor : '',
+        };
 
         return (
-          <div className={className} key={index}>
+          <div className={className} style={style} key={`slot-${index}`}>
             <span className={cls(classNames.timeLabel)}>
               {timeTemplate ? (
                 <Template template={timeTemplate} model={{ time: slot.date }} />

@@ -1,7 +1,7 @@
 import { Component, Fragment, h } from 'preact';
 import { createPortal } from 'preact/compat';
 
-import { addTimeGridPrefix, className as timegridClassName } from '@src/components/timegrid';
+import { addTimeGridPrefix } from '@src/components/timegrid';
 import { CollapseButton } from '@src/components/timegrid/collapseButton';
 import { TimeProps, Times } from '@src/components/timegrid/times';
 import { TimezoneLabel } from '@src/components/timegrid/timezoneLabel';
@@ -20,11 +20,6 @@ import {
 import { noop } from '@src/util';
 import { cls } from '@src/util/cssHelper';
 import { isNumber, range } from '@src/util/utils';
-
-const classNames = {
-  timegrid: cls(timegridClassName),
-  sticky: addTimeGridPrefix('sticky'),
-};
 
 interface Props {
   currentTime: TZDate;
@@ -152,7 +147,7 @@ export class MultipleTimezones extends Component<Props> {
     }
 
     return (
-      <div className={classNames.sticky}>
+      <div className={cls(addTimeGridPrefix('sticky'))}>
         {!this.state.collapsed
           ? reverseTimezones.map((timezone, index) => (
               <TimezoneLabel key={index} timezone={timezone} width={width} />

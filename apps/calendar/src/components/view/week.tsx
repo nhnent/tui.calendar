@@ -2,7 +2,6 @@ import { FunctionComponent, h } from 'preact';
 
 import DayNames from '@src/components/daygrid/dayNames';
 import { useStore } from '@src/components/hooks/store';
-import { useTheme } from '@src/components/hooks/theme';
 import { Layout } from '@src/components/layout';
 import Panel from '@src/components/panel';
 import { DayGridEvents } from '@src/components/panelgrid/dayGridEvents';
@@ -47,9 +46,8 @@ const Week: FunctionComponent = () => {
   const {
     state: { template, options, calendarData, grid },
   } = useStore();
-  const theme = useTheme();
 
-  if (!template || !theme || !options || !calendarData || !grid) {
+  if (!template || !options || !calendarData || !grid) {
     return null;
   }
 

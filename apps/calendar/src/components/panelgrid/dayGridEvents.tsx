@@ -7,9 +7,9 @@ import GridWithMouse from '@src/components/daygrid/gridWithMouse';
 import GridEvent from '@src/components/events/gridEvent';
 import { useCreationGuide } from '@src/components/hooks/creationGuide';
 import { useDOMNode } from '@src/components/hooks/domNode';
-import { useTheme } from '@src/components/hooks/theme';
 import { PanelGrid } from '@src/components/panelgrid/panelgrid';
 import { PanelTitle } from '@src/components/panelgrid/panelTitle';
+import { WEEK_EVENT_MARGIN_TOP } from '@src/constants/style';
 import { DEFAULT_PANEL_HEIGHT } from '@src/controller/panel';
 import { WeekOption } from '@src/model';
 import ScheduleViewModel from '@src/model/scheduleViewModel';
@@ -17,7 +17,6 @@ import TZDate from '@src/time/date';
 import { addDate, toEndOfDay, toStartOfDay } from '@src/time/datetime';
 import { cls } from '@src/util/cssHelper';
 import { EVENT_HEIGHT, isWithinHeight } from '@src/util/gridHelper';
-import { convertPxToNum } from '@src/util/units';
 import { createMousePositionDataGrabber } from '@src/util/weekViewHelper';
 
 import type { GridGuideInfo } from '@t/components/daygrid/creationGuide';
@@ -65,9 +64,6 @@ export const DayGridEvents: FunctionComponent<Props> = ({
   gridInfo,
   gridColWidthMap,
 }) => {
-  const {
-    week: { dayGridSchedule },
-  } = useTheme();
   const [panelContainer, setPanelContainerRef] = useDOMNode<HTMLDivElement>();
   const columnWidth = timesWidth * timezonesCount;
   const { narrowWeekend = false } = options;
@@ -81,7 +77,7 @@ export const DayGridEvents: FunctionComponent<Props> = ({
   );
   const gridInfoList = getGridInfoList(cells);
   const filteredViewModels = events.filter(
-    isWithinHeight(height, EVENT_HEIGHT + convertPxToNum(dayGridSchedule.marginTop))
+    isWithinHeight(height, EVENT_HEIGHT + WEEK_EVENT_MARGIN_TOP)
   );
 
   return (

@@ -2,9 +2,9 @@ import pick from 'tui-code-snippet/object/pick';
 
 import Theme from '@src/theme';
 import preset from '@src/theme/preset';
-import { ThemePropKeys } from '@src/theme/themeProps';
+import { ThemeKeyValue, ThemePropKeys } from '@src/theme/themeProps';
 
-const doorayTheme = {
+const doorayTheme: ThemeKeyValue = {
   'common.border': '1px solid #ddd',
   'common.backgroundColor': 'white',
   'common.holiday.color': '#f4436',
@@ -18,50 +18,27 @@ const doorayTheme = {
   'month.holidayExceptThisMonth.color': '#f3acac',
   'month.dayExceptThisMonth.color': '#bbb',
   'month.weekend.backgroundColor': '#fafafa',
-  'week.dayname.height': '41px',
   'week.dayname.borderTop': '1px solid #ddd',
   'week.dayname.borderBottom': '1px solid #ddd',
   'week.dayname.borderLeft': '1px solid #ddd',
-  'week.dayname.paddingLeft': '5px',
   'week.dayname.backgroundColor': 'inherit',
-  'week.dayname.textAlign': 'left',
   'week.today.color': '#135de6',
   'week.panelResizer.border': '1px solid #ddd',
-  'week.panelResizer.height': '3px',
   'week.daygrid.borderRight': '1px solid #ddd',
-  'week.daygridLeft.width': '77px',
   'week.daygridLeft.backgroundColor': '#fafafa',
-  'week.daygridLeft.paddingRight': '8px',
-  'week.daygridLeft.borderRight': '1px solid #ddd',
   'week.today.backgroundColor': 'inherit',
   'week.weekend.backgroundColor': 'inherit',
-  'week.timegridLeft.width': '72px',
   'week.timegridLeft.backgroundColor': '#fafafa',
   'week.timegridLeft.borderRight': '1px solid #ddd',
-  'week.timegridLeft.fontSize': '12px',
-  'week.timegridOneHour.height': '48px',
-  'week.timegridHalfHour.height': '24px',
   'week.timegridHalfHour.borderBottom': '1px dotted #f9f9f9',
   'week.timegridHorizontalLine.borderBottom': '1px solid #eee',
-  'week.timegrid.paddingRight': '10px',
   'week.timegrid.borderRight': '1px solid #ddd',
-  'week.timegridSchedule.borderRadius': '0',
-  'week.timegridSchedule.paddingLeft': '0',
   'week.currentTime.color': '#515ce6',
-  'week.currentTime.fontSize': '11px',
-  'week.currentTime.fontWeight': 'bold',
   'week.currentTimeLinePast.border': '1px solid rgba(19, 93, 230, 0.3)',
   'week.currentTimeLineBullet.backgroundColor': '#135de6',
   'week.currentTimeLineToday.border': '1px solid #135de6',
   'week.currentTimeLineFuture.border': '1px solid #135de6',
   'week.creationGuide.color': '#135de6',
-  'week.creationGuide.fontSize': '12px',
-  'week.creationGuide.fontWeight': 'bold',
-  'week.dayGridSchedule.borderRadius': '0',
-  'week.dayGridSchedule.height': '18px',
-  'week.dayGridSchedule.marginTop': '2px',
-  'week.dayGridSchedule.marginLeft': '10px',
-  'week.dayGridSchedule.marginRight': '10px',
 };
 
 describe('Theme', () => {

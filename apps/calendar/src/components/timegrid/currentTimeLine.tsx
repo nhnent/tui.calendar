@@ -1,6 +1,7 @@
 import { FunctionComponent, h } from 'preact';
 
 import { addTimeGridPrefix } from '@src/components/timegrid';
+import { cls } from '@src/util/cssHelper';
 import { toPercent } from '@src/util/units';
 
 const classNames = {
@@ -38,17 +39,17 @@ export const CurrentTimeLine: FunctionComponent<Props> = ({
   const currentTimeRightBorderTop = 'none';
 
   return (
-    <div className={classNames.line} style={{ top: toPercent(top) }}>
+    <div className={cls(classNames.line)} style={{ top: toPercent(top) }}>
       <div
-        className={classNames.left}
+        className={cls(classNames.left)}
         style={{ width: leftLine.width, borderTop: currentTimeLeftBorderTop }}
       />
       <div
-        className={classNames.marker}
+        className={cls(classNames.marker)}
         style={{ left: leftLine.left, backgroundColor: currentTimeBulletBackgroundColor }}
       />
       <div
-        className={classNames.today}
+        className={cls(classNames.today)}
         style={{
           left: leftLine.left,
           width: toPercent(columnWidth),
@@ -56,7 +57,7 @@ export const CurrentTimeLine: FunctionComponent<Props> = ({
         }}
       />
       <div
-        className={classNames.right}
+        className={cls(classNames.right)}
         style={{
           left: rightLine.left,
           borderTop: currentTimeRightBorderTop,
